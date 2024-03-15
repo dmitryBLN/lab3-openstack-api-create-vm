@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenStack</title>
+    <meta name="Auth-token" content="{{ AUTH_TOKEN }}">
+    <meta name="Project-id" content="{{ PROJECT_ID }}">
+</head>
+<body>
+    <form action="/" method="post">
+        <input type="text" name="name" placeholder="Name">
+        <br></br>
+        <select name="volume">
+            {% for volume in volumes %}
+                <option value="{{ volume[1] }}">{{ volume[0] }}</option>
+            {% endfor %}
+        </select>
+        <br></br>
+        <select name="network">
+            {% for network in networks %}
+                <option value="{{ network[1] }}">{{ network[0] }}</option>
+            {% endfor %}
+        </select>
+        <br></br>
+        <select name="flavor">
+            {% for flavor in flavors %}
+                <option value="{{ flavor[1] }}">{{ flavor[0] }}</option>
+            {% endfor %}
+        </select>
+        <br></br>
+        <br></br>
+        <input type="submit" value="Create VM">
+    </form>
+</body>
+</html>
